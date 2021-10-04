@@ -12,8 +12,7 @@ if (( $# < 1 )); then
             fi
         done
 else
-        echo $1
-        if (( $1 == "-c" )); then
+        if [[ "$1" = "-c" ]]; then
             for i in ./*[0-9]
                 do
                 > $i
