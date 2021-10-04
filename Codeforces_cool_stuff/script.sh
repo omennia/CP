@@ -1,13 +1,15 @@
 #!/bin/bash
 g++ -std=c++14 -Wall -o next next.cpp
-
 if (( $# < 1 )); then 
     for i in ./*[0-9];
         do
-            echo =================
-            ./next < $i
-            echo =================
-            echo
+            cnt=$(wc -w $i | cut -d " " -f 1)
+            if (( $cnt > 0 )); then
+                echo =================
+                ./next < $i
+                echo =================
+                echo
+            fi
         done
     else
         if (( $# == 2 )); then
