@@ -11,11 +11,17 @@ if (( $# < 1 )); then
                 echo
             fi
         done
-    else
-        if (( $# == 2 )); then
+else
+        echo $1
+        if (( $1 == "-c" )); then
+            for i in ./*[0-9]
+                do
+                > $i
+                done
+        elif (( $# == 2 )); then
             ./next < $1 > $2
             tkdiff $2 esperado
         else
-        ./next < $1
+            ./next < $1
         fi
 fi
